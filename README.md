@@ -1,133 +1,143 @@
-# YouTube Clone — End-to-End DevOps CI/CD on AWS EKS
+# YouTube Clone — End-to-End DevSecOps Project on AWS EKS
 
-An end-to-end DevOps learning project focused on automating the build, security scanning, containerization, and Kubernetes deployment of a YouTube clone application using Jenkins and AWS.
+An end-to-end DevOps project demonstrating CI/CD automation, infrastructure as code, containerization, security scanning, Kubernetes deployment, and monitoring using AWS and open-source tools.
 
 ## Project Overview
 
-This project demonstrates a Jenkins-based CI/CD pipeline for a YouTube clone application. The pipeline integrates SonarQube for code quality analysis, Trivy for filesystem and container image scanning, Docker for containerization, Docker Hub for image publishing, and Kubernetes for application deployment.
+This project focuses on deploying a YouTube clone application on Amazon EKS using a Jenkins-based CI/CD pipeline.
 
-The application is deployed on Amazon EKS, with Jenkins automating the deployment workflow and sending email notifications containing build information and available scan reports.
+The pipeline integrates GitHub for source control, SonarQube for code quality analysis, Trivy for filesystem and Docker image scanning, Docker for containerization, and Docker Hub for image publishing. Kubernetes is used to deploy the application, while Prometheus and Grafana provide monitoring capabilities.
 
-**Note:** The application source code is based on an existing project. My work focuses on the DevOps pipeline, deployment configuration, infrastructure integration, and troubleshooting performed as part of this learning project.
+Terraform is used for infrastructure as code, and Jenkins email notifications provide build status and scan reports.
+
+**Note:** The original application source code is based on another developer's repository. This project showcases my DevOps implementation and deployment work.
 
 ## Architecture
 
+The project follows this workflow:
+
 ```text
-GitHub Repository
-       |
-       v
+Developer
+    |
+    v
+Git / GitHub Repository
+    |
+    v
 Jenkins CI/CD Pipeline
-       |
-       v
-Workspace Cleanup and Checkout
-       |
-       v
-SonarQube Analysis
-       |
-       v
-Quality Gate Check
-       |
-       v
-Install npm Dependencies
-       |
-       v
-Trivy Filesystem Scan
-       |
-       v
-Docker Build and Push
-       |
-       v
-Docker Hub Image
-abin89/youtube-clone:latest
-       |
-       v
-Trivy Image Scan
-       |
-       v
-Kubernetes Deployment
-       |
-       v
-Amazon EKS
-       |
-       v
-Application Service
-       |
-       v
-Email Build Notification
+    |
+    +----> SonarQube Code Analysis
+    |
+    +----> npm Dependency Installation
+    |
+    +----> Trivy Filesystem Scan
+    |
+    +----> Docker Build
+    |          |
+    |          v
+    |      Docker Hub
+    |
+    +----> Trivy Image Scan
+    |
+    +----> Kubernetes Deployment
+               |
+               v
+         Amazon EKS
+               |
+               v
+       Application Service
+
+Terraform ---> AWS Infrastructure
+
+Prometheus ---> Metrics Collection
+Grafana ------> Monitoring Dashboards
+
+Jenkins ---> Email Notifications
 ```
 
-## Technology Stack
+The architecture diagram represents the overall project. The Jenkinsfile defines the automated pipeline stages, while Terraform and monitoring components are configured separately.
 
-| Technology         | Purpose                                        |
-| ------------------ | ---------------------------------------------- |
-| GitHub             | Source code management                         |
-| Jenkins            | CI/CD pipeline automation                      |
-| Java JDK 17        | Configured Jenkins build tool                  |
-| Node.js 16 and npm | JavaScript runtime and dependency installation |
-| SonarQube          | Static code quality analysis                   |
-| Trivy              | Filesystem and Docker image scanning           |
-| Docker             | Application containerization                   |
-| Docker Hub         | Container image registry                       |
-| Kubernetes         | Application deployment and orchestration       |
-| Amazon EKS         | Managed Kubernetes environment                 |
-| kubectl            | Kubernetes resource management                 |
+## Technologies Used
 
-## Jenkins CI/CD Pipeline
+| Technology                  | Purpose                                          |
+| --------------------------- | ------------------------------------------------ |
+| Git and GitHub              | Source code management                           |
+| Jenkins                     | CI/CD pipeline automation                        |
+| SonarQube                   | Static code quality analysis                     |
+| npm                         | JavaScript dependency installation               |
+| Trivy                       | Filesystem and container image security scanning |
+| Docker                      | Application containerization                     |
+| Docker Hub                  | Container image registry                         |
+| Terraform                   | Infrastructure as code                           |
+| Amazon EKS                  | Managed Kubernetes service                       |
+| Kubernetes                  | Application deployment and orchestration         |
+| Prometheus                  | Metrics collection and monitoring                |
+| Grafana                     | Monitoring dashboards and visualization          |
+| Gmail / Email notifications | Jenkins build status and report delivery         |
 
-The Jenkins pipeline automates the following stages:
+## CI/CD Pipeline Stages
 
-### 1. Clean Workspace
+### 1. Workspace Cleanup
 
-Deletes existing workspace contents before the pipeline starts.
+Jenkins cleans the workspace before starting a new pipeline execution.
 
-### 2. Checkout Source Code
+### 2. Source Code Checkout
 
-Checks out the `main` branch from the GitHub repository.
+The pipeline checks out the `main` branch from the GitHub repository.
 
 ### 3. SonarQube Analysis
 
-Runs SonarScanner with the configured SonarQube server and project settings to analyze code quality.
+SonarScanner analyzes the application source code using the configured SonarQube server and project settings.
 
 ### 4. Quality Gate
 
-Waits for the SonarQube quality gate result. The current pipeline uses `abortPipeline: false`, meaning a failed quality gate does not automatically stop the pipeline at this stage.
+Jenkins waits for the SonarQube quality gate result. The current pipeline is configured with `abortPipeline: false`, so a failed quality gate does not automatically stop subsequent stages.
 
 ### 5. Install Dependencies
 
-Runs `npm install` to install the application's Node.js dependencies.
+The pipeline runs `npm install` to install application dependencies.
 
 ### 6. Trivy Filesystem Scan
 
-Scans the project filesystem and saves the output to `trivyfs.txt`.
+Trivy scans the project filesystem. The output is saved to `trivyfs.txt`.
 
 ### 7. Docker Build and Push
 
-Builds a Docker image and pushes it to Docker Hub using the configured Jenkins registry credentials.
+Jenkins builds a Docker image and pushes it to Docker Hub using configured Jenkins credentials.
 
-Image reference:
+Docker image:
 
 `abin89/youtube-clone:latest`
 
 ### 8. Trivy Image Scan
 
-Scans the Docker image and saves the output to `trivyimage.txt`.
+Trivy scans the built Docker image and saves the results to `trivyimage.txt`.
 
 ### 9. Deploy to Kubernetes
 
-Uses Jenkins Kubernetes credentials to connect to the configured cluster and applies the Kubernetes deployment and service manifests from the `Kubernetes/` directory.
+Jenkins connects to the configured Kubernetes cluster and applies the deployment and service manifests located in the `Kubernetes/` directory.
 
-### 10. Email Notification
+* `deployment.yml`
+* `service.yml`
 
-Sends a build notification containing the job name, build number, status, build URL, and console log. The configured Trivy reports are attached when those files are available.
+The application is deployed on Amazon EKS.
+
+### 10. Email Notifications
+
+Jenkins sends an email containing the job name, build number, build status, and build URL. The console log and available Trivy reports are attached according to the pipeline configuration.
+
+## Infrastructure as Code with Terraform
+
+Terraform is used in the project to manage AWS infrastructure through configuration files.
+
+Infrastructure as code helps make resource configuration repeatable and easier to maintain.
+
+Document the specific resources you provisioned, such as the VPC, subnets, security groups, EKS cluster, or worker nodes, based on your actual Terraform configuration.
 
 ## Kubernetes Deployment
 
-The deployment stage uses these manifest files:
+The application runs on Kubernetes within Amazon EKS.
 
-* `Kubernetes/deployment.yml`
-* `Kubernetes/service.yml`
-
-Useful verification commands:
+Useful commands for inspecting the deployment:
 
 ```bash
 kubectl get nodes
@@ -142,45 +152,56 @@ Inspect the application service:
 kubectl describe svc youtube-clone-app -n default
 ```
 
-Use the appropriate namespace if the application is deployed elsewhere.
+Use the appropriate namespace if your application is deployed elsewhere.
+
+## Monitoring with Prometheus and Grafana
+
+Prometheus and Grafana are used for monitoring in this project.
+
+* **Prometheus:** Collects metrics from configured monitoring targets.
+* **Grafana:** Visualizes metrics through dashboards.
+
+Add screenshots of your actual Prometheus targets and Grafana dashboards to demonstrate the monitoring setup.
 
 ## Repository Structure
+
+The following is a suggested structure. Adapt it to match your existing files.
 
 ```text
 a-youtube-clone-app/
 ├── README.md
-├── Dockerfile
 ├── Jenkinsfile
+├── Dockerfile
 ├── Kubernetes/
 │   ├── deployment.yml
 │   └── service.yml
+├── terraform/
+│   ├── main.tf
+│   ├── variables.tf
+│   └── outputs.tf
+├── monitoring/
+│   ├── prometheus/
+│   └── grafana/
 ├── screenshots/
 │   ├── application-homepage.png
 │   ├── jenkins-pipeline.png
 │   ├── kubernetes-pods.png
-│   └── trivy-scan-results.png
+│   ├── sonarqube-analysis.png
+│   ├── trivy-scan-results.png
+│   └── grafana-dashboard.png
 └── .gitignore
 ```
 
-This is a suggested structure based on the Jenkinsfile. Preserve the existing application source folders and include the screenshots only after uploading them. Keep sensitive files and credentials out of the repository.
+Keep your original application source folders and any existing Terraform or monitoring filenames. Do not upload credentials, sensitive `.env` files, Kubernetes secrets, or Terraform state files.
 
-## Security Considerations
+## Key Learnings
 
-* Jenkins credentials are used for Docker Hub and Kubernetes access.
-* Trivy scan reports are generated for the filesystem and Docker image.
-* SonarQube is integrated for code quality analysis.
-* The current quality gate configuration does not automatically abort the pipeline when the gate fails.
-* Review scan results and configure appropriate failure thresholds before treating the pipeline as a security enforcement mechanism.
-
-## Challenges and Learnings
-
-This project provided hands-on practice with:
-
-* Automating build and deployment workflows using Jenkins.
-* Integrating code quality analysis and vulnerability scanning.
-* Building and publishing Docker images.
-* Deploying applications to Kubernetes on AWS EKS.
-* Managing CI/CD credentials through Jenkins.
+* Automating application delivery using Jenkins CI/CD pipelines.
+* Integrating static code analysis and security scanning into CI/CD.
+* Building and publishing Docker images to Docker Hub.
+* Deploying containerized applications on Amazon EKS.
+* Managing infrastructure using Terraform.
+* Monitoring configured application and infrastructure metrics using Prometheus and Grafana.
 * Troubleshooting Kubernetes resources and AWS LoadBalancer connectivity.
 
 ## Original Project Attribution
@@ -190,7 +211,7 @@ The application source code is based on the original project by [Ashfaque-9x](ht
 * **Original repository:** https://github.com/Ashfaque-9x/a-youtube-clone-app
 * **My repository:** https://github.com/abin7890/a-youtube-clone-app
 
-Credit for the original application belongs to its original creator. Refer to the original repository's license and notices for the applicable reuse and attribution terms.
+Credit for the original application belongs to its original creator. Refer to the original repository's license and notices for applicable reuse and attribution requirements.
 
 ## Author
 
