@@ -1,6 +1,10 @@
 # YouTube Clone — End-to-End DevSecOps Project on AWS EKS
 
 An end-to-end DevOps project demonstrating CI/CD automation, infrastructure as code, containerization, security scanning, Kubernetes deployment, and monitoring using AWS and open-source tools.
+<p align="center">
+  <img src="screenshots/devsecops-architecture.png" alt="DevSecOps CI/CD Pipeline Architecture" width="100%">
+</p>
+
 
 ## Project Overview
 
