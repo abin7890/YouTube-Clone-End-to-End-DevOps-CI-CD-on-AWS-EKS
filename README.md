@@ -160,39 +160,7 @@ Prometheus and Grafana are used for monitoring in this project.
 
 * **Prometheus:** Collects metrics from configured monitoring targets.
 * **Grafana:** Visualizes metrics through dashboards.
-
-Add screenshots of your actual Prometheus targets and Grafana dashboards to demonstrate the monitoring setup.
-
-## Repository Structure
-
-The following is a suggested structure. Adapt it to match your existing files.
-
-```text
-a-youtube-clone-app/
-├── README.md
-├── Jenkinsfile
-├── Dockerfile
-├── Kubernetes/
-│   ├── deployment.yml
-│   └── service.yml
-├── terraform/
-│   ├── main.tf
-│   ├── variables.tf
-│   └── outputs.tf
-├── monitoring/
-│   ├── prometheus/
-│   └── grafana/
-├── screenshots/
-│   ├── application-homepage.png
-│   ├── jenkins-pipeline.png
-│   ├── kubernetes-pods.png
-│   ├── sonarqube-analysis.png
-│   ├── trivy-scan-results.png
-│   └── grafana-dashboard.png
-└── .gitignore
-```
-
-Keep your original application source folders and any existing Terraform or monitoring filenames. Do not upload credentials, sensitive `.env` files, Kubernetes secrets, or Terraform state files.
+* 
 
 ## Key Learnings
 
