@@ -166,34 +166,27 @@ Prometheus and Grafana are used for monitoring in this project.
 * **Prometheus:** Collects metrics from configured monitoring targets.
 * **Grafana:** Visualizes metrics through dashboards.
   
-  ## 📸 Project Screenshots
+## 📸 Project Screenshots
 
-The following screenshots showcase the implementation of my end-to-end DevSecOps CI/CD pipeline, including automated builds, code quality analysis, containerization, Kubernetes deployment, and AWS infrastructure provisioning.
+These screenshots demonstrate the implementation of the end-to-end DevSecOps CI/CD pipeline, including code analysis, containerization, infrastructure provisioning, and Kubernetes deployment.
 
 ### 1. Jenkins CI/CD Pipeline
-
-![Jenkins CI/CD Pipeline](project%20screenshots/Jenkins%20CICD%20Pipeline.png)
+![Jenkins CI/CD Pipeline](<project screenshots/Jenkins CICD Pipeline.png>)
 
 ### 2. SonarQube Code Analysis
-
-![SonarQube Code Analysis](project%20screenshots/SonarQube%20Code%20Analysis.png)
+![SonarQube Code Analysis](<project screenshots/SonarQube Code Analysis.png>)
 
 ### 3. Docker Image
-
-![Docker Image](project%20screenshots/Docker%20Image.png)
+![Docker Image](<project screenshots/Docker Image.png>)
 
 ### 4. Terraform and AWS Infrastructure
-
-![Terraform and AWS Infrastructure](project%20screenshots/Terraform%20and%20AWS%20Infrastructure.png)
+![Terraform and AWS Infrastructure](<project screenshots/Terraform and AWS Infrastructure.png>)
 
 ### 5. Kubernetes Deployments
-
-![Kubernetes Deployments](project%20screenshots/Kubernetes%20Deployments.png)
+![Kubernetes Deployments](<project screenshots/Kubernetes Deployments.png>)
 
 ### 6. Deployed Application
-
-![Deployed Application](project%20screenshots/Deployed%20Application.png)
-
+![Deployed Application](<project screenshots/Deployed Application.png>)
 
 ## Key Learnings
 
