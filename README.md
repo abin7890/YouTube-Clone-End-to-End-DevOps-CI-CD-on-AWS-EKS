@@ -168,25 +168,41 @@ Prometheus and Grafana are used for monitoring in this project.
   
 ## 📸 Project Screenshots
 
-These screenshots demonstrate the implementation of the end-to-end DevSecOps CI/CD pipeline, including code analysis, containerization, infrastructure provisioning, and Kubernetes deployment.
+<p>
+  These screenshots showcase my end-to-end DevSecOps CI/CD pipeline,
+  including code quality analysis, containerization, infrastructure
+  provisioning, Kubernetes deployment, and application deployment.
+</p>
 
-### 1. Jenkins CI/CD Pipeline
-![Jenkins CI/CD Pipeline](<project screenshots/Jenkins CICD Pipeline.png>)
+<h3>1. Jenkins CI/CD Pipeline</h3>
+<img src="./project%20screenshots/Jenkins%20CICD%20Pipeline.png"
+     alt="Jenkins CI/CD Pipeline"
+     width="500">
 
-### 2. SonarQube Code Analysis
-![SonarQube Code Analysis](<project screenshots/SonarQube Code Analysis.png>)
+<h3>2. SonarQube Code Analysis</h3>
+<img src="./project%20screenshots/SonarQube%20Code%20Analysis.png"
+     alt="SonarQube Code Analysis"
+     width="500">
 
-### 3. Docker Image
-![Docker Image](<project screenshots/Docker Image.png>)
+<h3>3. Docker Image</h3>
+<img src="./project%20screenshots/Docker%20Image.png"
+     alt="Docker Image"
+     width="500">
 
-### 4. Terraform and AWS Infrastructure
-![Terraform and AWS Infrastructure](<project screenshots/Terraform and AWS Infrastructure.png>)
+<h3>4. Terraform and AWS Infrastructure</h3>
+<img src="./project%20screenshots/Terraform%20and%20AWS%20Infrastructure.png"
+     alt="Terraform and AWS Infrastructure"
+     width="500">
 
-### 5. Kubernetes Deployments
-![Kubernetes Deployments](<project screenshots/Kubernetes Deployments.png>)
+<h3>5. Kubernetes Deployments</h3>
+<img src="./project%20screenshots/Kubernetes%20Deployments.png"
+     alt="Kubernetes Deployments"
+     width="500">
 
-### 6. Deployed Application
-![Deployed Application](<project screenshots/Deployed Application.png>)
+<h3>6. Deployed Application</h3>
+<img src="./project%20screenshots/Deployed%20Application.png"
+     alt="Deployed Application"
+     width="500">
 
 ## Key Learnings
 
