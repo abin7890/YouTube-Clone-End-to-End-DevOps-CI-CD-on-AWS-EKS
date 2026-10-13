@@ -200,7 +200,7 @@ Prometheus and Grafana are used for monitoring in this project.
      width="500">
 
 <h3>6. Deployed Application</h3>
-<img src="./project%20screenshots/Deployed%20Application.png"
+<img src="./project%20screenshots/Deployed Application.png"
      alt="Deployed Application"
      width="500">
 
