@@ -4,12 +4,8 @@ An end-to-end DevOps project demonstrating CI/CD automation, infrastructure as c
 <p align="center">
   <img src="DevSecOps%20CI_CD%20Pipeline%20on%20AWS%20EKS.png"
        alt="DevSecOps CI/CD Pipeline Architecture"
-       width="450">
+       width="550">
 </p>
-
-# YouTube Clone — End-to-End DevSecOps Project on AWS EKS
-
-# YouTube Clone — End-to-End DevSecOps Project on AWS EKS
 
 ## Project Overview
 
