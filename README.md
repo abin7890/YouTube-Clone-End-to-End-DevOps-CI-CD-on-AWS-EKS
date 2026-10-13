@@ -165,7 +165,35 @@ Prometheus and Grafana are used for monitoring in this project.
 
 * **Prometheus:** Collects metrics from configured monitoring targets.
 * **Grafana:** Visualizes metrics through dashboards.
-* 
+  
+  ## 📸 Project Screenshots
+
+The following screenshots showcase the implementation of my end-to-end DevSecOps CI/CD pipeline, including automated builds, code quality analysis, containerization, Kubernetes deployment, and AWS infrastructure provisioning.
+
+### 1. Jenkins CI/CD Pipeline
+
+![Jenkins CI/CD Pipeline](project%20screenshots/Jenkins%20CICD%20Pipeline.png)
+
+### 2. SonarQube Code Analysis
+
+![SonarQube Code Analysis](project%20screenshots/SonarQube%20Code%20Analysis.png)
+
+### 3. Docker Image
+
+![Docker Image](project%20screenshots/Docker%20Image.png)
+
+### 4. Terraform and AWS Infrastructure
+
+![Terraform and AWS Infrastructure](project%20screenshots/Terraform%20and%20AWS%20Infrastructure.png)
+
+### 5. Kubernetes Deployments
+
+![Kubernetes Deployments](project%20screenshots/Kubernetes%20Deployments.png)
+
+### 6. Deployed Application
+
+![Deployed Application](project%20screenshots/Deployed%20Application.png)
+
 
 ## Key Learnings
 
