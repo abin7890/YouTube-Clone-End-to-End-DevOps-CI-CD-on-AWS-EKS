@@ -171,22 +171,22 @@ Prometheus and Grafana are used for monitoring in this project.
 <p>These screenshots showcase my end-to-end DevSecOps CI/CD pipeline, including code analysis, containerization, AWS infrastructure, Kubernetes deployment, and application deployment.</p>
 
 <h3>1. Jenkins CI/CD Pipeline</h3>
-<img src="./screenshots/Jenkins%20CICD%20Pipeline.png" alt="Jenkins CI/CD Pipeline" width="900">
+<img src="./screenshots/Jenkins%20CICD%20Pipeline.png" alt="Jenkins CI/CD Pipeline" width="500">
 
 <h3>2. SonarQube Code Analysis</h3>
-<img src="./screenshots/SonarQube%20Code%20Analysis.png" alt="SonarQube Code Analysis" width="900">
+<img src="./screenshots/SonarQube%20Code%20Analysis.png" alt="SonarQube Code Analysis" width="500">
 
 <h3>3. Docker Image</h3>
-<img src="./screenshots/Docker%20Image.png" alt="Docker Image" width="900">
+<img src="./screenshots/Docker%20Image.png" alt="Docker Image" width="500">
 
 <h3>4. Terraform and AWS Infrastructure</h3>
-<img src="./screenshots/Terraform%20and%20AWS%20Infrastructure.png" alt="Terraform and AWS Infrastructure" width="900">
+<img src="./screenshots/Terraform%20and%20AWS%20Infrastructure.png" alt="Terraform and AWS Infrastructure" width="500">
 
 <h3>5. Kubernetes Deployments</h3>
-<img src="./screenshots/Kubernetes%20Deployments.png" alt="Kubernetes Deployments" width="900">
+<img src="./screenshots/Kubernetes%20Deployments.png" alt="Kubernetes Deployments" width="500">
 
 <h3>6. Deployed Application</h3>
-<img src="./screenshots/Deployed%20Application.png" alt="Deployed Application" width="900">
+<img src="./screenshots/Deployed%20Application.png" alt="Deployed Application" width="500">
 
 
 ## Key Learnings
