@@ -25,7 +25,7 @@ The project follows this workflow:
 Developer
     |
     v
-Git / GitHub Repository
+Git / GitHub Repository.
     |
     v
 Jenkins CI/CD Pipeline
